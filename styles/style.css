@@ -27,13 +27,22 @@ ol {
   list-style: none;
 }
 
+input {
+  appearance: none;
+}
+
+input:focus {
+  outline: none; 
+	
+}
+
 .page {
   display: flex;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: 'Fira Sans Condensed', "Arial", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   justify-content: center;
@@ -46,7 +55,6 @@ ol {
   align-items: flex-end;
   width: 1140px;
   margin: 133px 0px 133px 0px;
-  height: 534px;
 }
 
 .result {
@@ -62,7 +70,6 @@ ol {
   width: 711px;
   height: 386px;
   position: relative;
-  margin-top: 75px;
 }
 
 .result__video {
@@ -86,16 +93,11 @@ ol {
 .content__list {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-y: auto;
   height: 298px;
   position: relative;
   max-width: 399px;
   margin: 0px;
-}
-
-.title{
-  margin-bottom: 20px;
 }
 
 .content__list-item {
@@ -109,11 +111,13 @@ ol {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .content__video-card-thumbnail {
-  min-width: 194px;
-  max-height: 103px;
+  height: 103px;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .content__video-card-description-container {
@@ -133,21 +137,22 @@ ol {
 }
 
 .search-form__fieldset-title {
-  font-size: 18px;
+  margin-bottom: 5px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 0.3px;
-  word-spacing: -3px;
+  letter-spacing: normal;
+  font-size: 18px;
 }
 
 .title {
-  font-family: Oswald;
-  font-size: 75px;
+  font-family: 'Oswald', "Arial", sans-serif;
+  font-size: 73px;
   font-style: normal;
   font-weight: 700;
   line-height: 94%; 
   text-transform: uppercase; 
+  margin-bottom: 26px;
 }
 
 .content__accent {
@@ -156,10 +161,9 @@ ol {
 
 .content__card-link {
   color: #FFF;
-  font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16.2px;  
+  line-height: 90%;  
   text-decoration: none;
   display: block;
   margin: 3px;
@@ -168,7 +172,7 @@ ol {
 .content__video-card-title {
   margin-bottom: 6px;
   margin-top: 5px;
-  font-family: Oswald;
+  font-family: 'Oswald', "Arial", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -181,47 +185,51 @@ ol {
 }
 
 .search-form__label {
+  display: flex;
   width: fit-content;
-  display: inline;
+  cursor: pointer;
 }
 
 .search-form__label-text {
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  padding-left: 5px;
 }
 
 .search-form__textfield {
   background-color: transparent; 
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   min-width: 225px;
   border: 0px;
-  margin-top: 5px;
   border-bottom: 1px solid;
   border-top: 1px solid;
   border-color: white;
   min-height: 18px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  color: white;
-  letter-spacing: 0.5px;
-  word-spacing: -3px;
+  padding-top: 3px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 1);
 }
 
+.search-form__textfield::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Fira Sans Condensed", "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+}
+ 
 .search-form__checkbox-list {
-  display: inline-block;
+  display: flex;
   margin-top: 5px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
 }
 
 .search-form__fieldset {
   margin-right: 40px;
   min-width: 212px;
   border: 0px;
-  color: rgba(255, 255, 255, 0.70);
+  color: rgba(255, 255, 255, 1);
   appearance: none;
 }
 
@@ -245,12 +253,11 @@ ol {
   min-height: 34px;
   color: #FFF;
   text-align: center;
-  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   background-color: transparent; 
-  border: 1px solid #FFF;
+  border: 1px solid currentColor;
   outline: none;
   cursor: pointer;
   align-items: center;
@@ -261,39 +268,44 @@ ol {
 .search-form__submit-button {
   width: 194px;
   min-height: 34px;
-  margin-top: 19px;
-  margin: 20px 0px 0px;
+  margin-top: 18px;
 }
 
 .more-button {
-  width: 399px;
+  width: 100%;
 }
 
 .content__card-link_current {
   background: #545050;
 }
+
+.content__card-link:active {
+  background: #545050;
+}
+
 .search-form__pseudo-checkbox {
-  display: inline-block;
+  display: flex; 
   vertical-align: middle;
   cursor: pointer;
   width: 19px;
   height: 19px;
   background-color: black;
   border: 1px solid #fff;
+  justify-content: center;
+  align-items: center;
 }
 
-.content__video-card-description-container:hover {
+.content__card-link:hover {
   text-decoration-line: underline;
-  padding-bottom: 3px;
   cursor: pointer;
 }
 
-.content__card-link_current:focus-visible {
-  border: 1px solid #FFF;
+.content__card-link:focus {
+  outline: none; 
 }
 
-.content__card-link_current:focus {
-  outline: none; 
+.content__card-link:focus-visible {
+  border: 1px solid #FFF;
 }
 
 .button:active {
@@ -304,44 +316,29 @@ ol {
   text-decoration: underline;
 }
 
+.button.focus {
+  outline: none; 
+}
+
 .button:focus-visible {
   outline: 1px solid #FFFFFF;
   outline-offset: 1px;
 }
 
-.buttun.focus {
-  outline: none; 
-}
-
-input {
-  appearance: none;
-}
-
-input:focus {
-  outline: none; 
-	
-}
-
-input:focus-visible {
-  outline: 1px solid #FFFFFF;
-  outline-offset: 1px;
-}
-
-.search-form__label-text:hover {
+.search-form__checkbox-list .search-form__label:hover {
   text-decoration: underline;
 }
 
-.search-form__label:not(:first-child) .search-form__pseudo-checkbox {
-  margin-left: 10px;
-}
-
 .search-form__checkbox:checked + .search-form__pseudo-checkbox:before {
-  content: url("../images/check.svg");
-  margin-left: 1px;
-  margin-bottom: 1px;
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #FFF;
+  display: block;
+  margin: 1px;
 }
 
-.search-form__textfield:foсus {
+.search-form__textfield:focus {
   outline: none; 
 }
 
@@ -349,4 +346,3 @@ input:focus-visible {
   outline: 1px solid #FFF;
   outline-offset: 1px;
 }
-
